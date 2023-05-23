@@ -1,28 +1,28 @@
 import './App.css';
+import Home from './pages/Home';
+import EventsDetails from './pages/EventsDetails';
+import {BrowserRouter as  Router, Routes ,Route ,Link } from 'react-router-dom';
+
 
 function App() {
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
+   <Router>
+    <nav className='flex justify-between align-center px-4 py-2 bg-sky-500 h-10  text-white text-center'>
+                <Link to='/' >Logo</Link>
+                <ul className='flex '>
+                <Link to='/' ><li className='px-3'>Home</li></Link>
+                    <li>Events</li>
+                </ul>
+     </nav>
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/events/:id' element={<EventsDetails />} />
+
+    </Routes>
+    
+  </Router>
+    
   );
 }
 
